@@ -77,6 +77,7 @@ def main(_argv):
     fps = 0.0
     count = 0 
     while True:
+         start = time.time()
         _, img = vid.read()
 
         if img is None:
@@ -151,6 +152,8 @@ def main(_argv):
         # press q to quit
         if cv2.waitKey(1) == ord('q'):
             break
+    end = time.time()
+    print("Time taken",end-start)
     vid.release()
     if FLAGS.output:
         out.release()
