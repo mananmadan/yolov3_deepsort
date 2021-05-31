@@ -76,10 +76,12 @@ def main(_argv):
     
     fps = 0.0
     count = 0 
-    while True:
-         start = time.time()
-        _, img = vid.read()
 
+    start = time.time()
+    logging.info("starting to read frames")
+
+    while True:
+        _,img = vid.read()
         if img is None:
             logging.warning("Empty Frame")
             time.sleep(0.1)
@@ -153,6 +155,7 @@ def main(_argv):
         if cv2.waitKey(1) == ord('q'):
             break
     end = time.time()
+    logging.info("all frames done")
     print("Time taken",end-start)
     vid.release()
     if FLAGS.output:
