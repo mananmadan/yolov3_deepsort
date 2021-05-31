@@ -138,7 +138,7 @@ def main(_argv):
         fps  = ( fps + (1./(time.time()-t1)) ) / 2
         cv2.putText(img, "FPS: {:.2f}".format(fps), (0, 30),
                           cv2.FONT_HERSHEY_COMPLEX_SMALL, 1, (0, 0, 255), 2)
-        cv2.imshow('output', img)
+        #cv2.imshow('output', img)
         if FLAGS.output:
             out.write(img)
             frame_index = frame_index + 1
@@ -152,7 +152,7 @@ def main(_argv):
         if cv2.waitKey(1) == ord('q'):
             break
     vid.release()
-    if FLAGS.ouput:
+    if FLAGS.output:
         out.release()
         list_file.close()
     cv2.destroyAllWindows()
